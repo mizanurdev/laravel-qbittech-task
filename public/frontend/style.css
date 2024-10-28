@@ -1,0 +1,52 @@
+/* Custom CSS */
+body {
+    font-family: Arial, sans-serif;
+}
+.hero-section {
+    background: linear-gradient(135deg, #E91E63 0%, #6a008a 100%);
+    color: #fff;
+    padding: 100px 0;
+    text-align: center;
+}
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+.btn-custom {
+    padding: 12px 30px;
+    font-size: 1rem;
+    border-radius: 50px;
+    transition: background 0.3s ease;
+}
+.btn-custom-primary {
+    background-color: #fff;
+    color: #6a008a;
+    border: none;
+}
+.btn-custom-primary:hover {
+    background-color: #f8f9fa;
+    color: #6a008a;
+}
+.features-section {
+    padding: 50px 0;
+}
+.feature-icon {
+    font-size: 2.5rem;
+    color: #6a008a;
+    margin-bottom: 20px;
+}
+.footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 5px 0;
+    text-align: center;
+}
+.footer a {
+    color: #E91E63;
+    text-decoration: none;
+}
