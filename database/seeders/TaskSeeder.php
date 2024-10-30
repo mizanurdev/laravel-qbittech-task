@@ -47,7 +47,7 @@ class TaskSeeder extends Seeder
             'status' => 'To Do',
             'user_id' => 5,
             'project_id' => 4,
-            'due_date' => Carbon::now()->addDays(5),
+            'due_date' => Carbon::now()->addDays(21),
         ]);
 
         Task::create([

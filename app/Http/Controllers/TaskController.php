@@ -8,17 +8,29 @@ use App\Models\Project;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Arr;
 
 class TaskController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        $tasks = Task::with(['user', 'project'])->get();
-        return view('backend.admin.tasks.index', compact('tasks'));
-    }
+ 
+    public function index(Request $request)
+{
+    // Get sorting order or default to ascending
+    $sortOrder = $request->input('sort', 'asc');
+
+    // Get selected statuses or use all possible statuses if none selected
+    $selectedStatuses = $request->input('status', ['To Do', 'In Progress', 'Completed']);
+
+    // Build the query with filtering and sorting
+    $tasks = Task::with(['user', 'project'])
+                 ->whereIn('status', (array) $selectedStatuses) // Casting to array for safety
+                 ->orderBy('due_date', $sortOrder)
+                 ->get();
+
+    return view('backend.admin.tasks.index', compact('tasks', 'selectedStatuses', 'sortOrder'));
+}
+
+    
 
     /**
      * Show the form for creating a new resource.
